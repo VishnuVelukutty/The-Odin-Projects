@@ -39,3 +39,38 @@ let playRound = (playerSelection, computerSelection) => {
     }
     return result
 }
+
+let game = () => {
+    let computerScore = 0, playerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = getPlayerChoice();
+        let computerSelection = getComputerChoice();
+
+        let outcome = playRound(playerSelection, computerSelection);
+
+        if (outcome == "p") {
+            playerScore++
+        }
+        else if (outcome == "c") {
+            computerScore++
+        }
+
+    }
+    let winner = ""
+    if (playerScore > computerScore) {
+        winner = "Player"
+        console.log(winner+" "+playerScore)
+    }
+    else if (playerScore < computerScore) {
+        winner = "Computer"
+        console.log(winner+" "+computerScore)
+    }
+    else {
+        winner = "Tie"
+        console.log(winner)
+    }
+
+
+}
+
+game()
